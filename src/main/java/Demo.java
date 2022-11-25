@@ -10,17 +10,13 @@ public class Demo {
 
         shelf1.listTapes();
 
-        //format testing
-        String str = "\"MCMXCI\",\"Skogen, Flickan Och Flaskan\",2012,Electronic,Opal Tapes";
-        String[] res = str.split(",(?=([^\"]|\"[^\"]*\")*$)");
-        for (int i = 0; i < res.length; i++) {
-            System.out.println(res[i]);
-        }
-        String str2 = "Cap'n Jazz,Shmap'n Shmazz,1994,Emo";
-        String[] res2 = str2.split(",(?=([^\"]|\"[^\"]*\")*$)");
-        for (int i = 0; i < res2.length; i++) {
-            System.out.println(res2[i]);
-        }
+        withTeeth.addGenre("Electronic");
+
+        System.out.println(withTeeth.toString());
+
+
+
+
 
     }
 }

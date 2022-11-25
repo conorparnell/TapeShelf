@@ -7,6 +7,12 @@ public class Tape {
     private int year;
     private List<String> genre = new ArrayList<>();
 
+    public Tape(String artist, String album, int year) {
+        this.artist = artist;
+        this.album = album;
+        this.year = year;
+    }
+
     public Tape(String artist, String album, int year, String...genres) {
         this.artist = artist;
         this.album = album;
@@ -32,6 +38,14 @@ public class Tape {
         String genreList = genre.toString();
         genreList = genreList.replace("[", "").replace("]", "");
         return genreList;
+    }
+
+    public void addGenre(String...genre) {
+        for (int i = 0; i < genre.length; i++) {
+            this.genre.add(genre[i]);
+        }
+
+        System.out.println(genre + " added to " + getAlbum() + "'s genres");
     }
 
     @Override
