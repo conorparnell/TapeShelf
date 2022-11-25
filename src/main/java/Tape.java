@@ -1,19 +1,19 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Tape {
+public class Tape implements Comparable<Tape>{
     private String artist;
     private String album;
-    private int year;
+    private String year;
     private List<String> genre = new ArrayList<>();
 
-    public Tape(String artist, String album, int year) {
+    public Tape(String artist, String album, String year) {
         this.artist = artist;
         this.album = album;
         this.year = year;
     }
 
-    public Tape(String artist, String album, int year, String...genres) {
+    public Tape(String artist, String album, String year, String...genres) {
         this.artist = artist;
         this.album = album;
         this.year = year;
@@ -30,7 +30,7 @@ public class Tape {
         return album;
     }
 
-    public int getYear() {
+    public String getYear() {
         return year;
     }
 
@@ -43,9 +43,8 @@ public class Tape {
     public void addGenre(String...genre) {
         for (int i = 0; i < genre.length; i++) {
             this.genre.add(genre[i]);
+            System.out.println("\'" + genre[i] + "\' added to " + getAlbum() + "'s genres");
         }
-
-        System.out.println(genre + " added to " + getAlbum() + "'s genres");
     }
 
     @Override
@@ -53,7 +52,16 @@ public class Tape {
         //Artist - Album Name (Year) [Genre, Genre, Genre];
         return getArtist() + " - " + getAlbum() + " (" + getYear() + ") [" + getGenre() + "]";
     }
+
+
+    @Override
+    public int compareTo(Tape o) {
+        Character a = this.getArtist().charAt(0);
+        Character b = o.getArtist().charAt(0);
+        return a.compareTo(b);
+        }
 }
+
 
 
 

@@ -29,7 +29,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
   </component>
-  <component name="RunManager" selected="Application.DiscogsReader">
+  <component name="RunManager" selected="Application.Demo">
     <configuration name="Demo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Demo" />
       <module name="TapeShelf" />
@@ -46,8 +46,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.DiscogsReader" />
         <item itemvalue="Application.Demo" />
+        <item itemvalue="Application.DiscogsReader" />
       </list>
     </recent_temporary>
   </component>
