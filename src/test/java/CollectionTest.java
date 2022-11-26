@@ -7,7 +7,7 @@ public class CollectionTest {
 
     @Before
     public void Setup(){
-        testCollection = new Collection();
+        testCollection = new Collection("discogs-collection.csv");
     }
 
     @Test

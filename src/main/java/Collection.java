@@ -5,7 +5,11 @@ import java.util.*;
 public class Collection {
     private List<Tape> collection = new ArrayList<>();
 
-    public Collection() {
+    public Collection(String filePath) {
+        populate(filePath);
+        order(collection);
+        System.out.println("COLLECTION ALPHABETIZED...");
+        System.out.println();
     }
 
     public List<Tape> getCollection() {
@@ -33,10 +37,11 @@ public class Collection {
                 String[] release = releaseInfo.split(",(?=([^\"]|\"[^\"]*\")*$)"); //ignore commas if between quotes
                 //artist = [1], album title = [2], year released = [6];
                 String artist = formatQuotes(release[1]);
+                artist = formatArtist(artist);
                 String album = formatQuotes(release[2]);
                 String year = formatYear(release[6]);
 
-                System.out.println("Adding item: " + count + ": " + artist + " - " + album + " (" + year + ") to your collection.");
+                //System.out.println("Adding item: " + count + ": " + artist + " - " + album + " (" + year + ") to your collection.");
 
                 Tape tape = new Tape(artist, album, year);
                 collection.add(tape);
@@ -44,8 +49,7 @@ public class Collection {
         } catch (FileNotFoundException e) {
             System.out.println("put the csv back");
         }
-        System.out.println();
-        System.out.println("COLLECTION POPULATED");
+        System.out.println("COLLECTION POPULATED...");
         System.out.println();
     }
 
@@ -62,7 +66,18 @@ public class Collection {
         return fixedName;
     }
 
-
+    private String formatArtist(String name){
+        String fixedName;
+        int length = name.length();
+        if (name.charAt(length -1) == ')') {
+            if (name.charAt(length-3) == '(') {
+                return name.substring(0, length -4);
+            } else if (name.charAt(length - 4) == '(') {
+                return name.substring(0, length -5);
+            }
+        }
+       return name;
+    }
 
     private String formatYear(String year){
         String newYear;

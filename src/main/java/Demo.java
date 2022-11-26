@@ -16,11 +16,9 @@ public class Demo {
 //
 //        System.out.println(withTeeth.toString());
 
-        Collection tapes = new Collection();
-        tapes.populate("discogs-collection.csv");
-        tapes.order(tapes.getCollection());
+        Collection tapes = new Collection("discogs-collection.csv");
         tapes.listCollection();
-        
+
         }
 
     }
