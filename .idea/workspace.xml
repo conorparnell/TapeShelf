@@ -44,9 +44,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="CollectionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TapeShelf" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="CollectionTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Demo" />
+        <item itemvalue="JUnit.CollectionTest" />
         <item itemvalue="Application.DiscogsReader" />
       </list>
     </recent_temporary>

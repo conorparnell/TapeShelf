@@ -30,17 +30,15 @@ public class Collection {
             while (scanner.hasNextLine()) {
                 count++;
                 String releaseInfo = scanner.nextLine();
-                String[] release = releaseInfo.split(",(?=([^\"]|\"[^\"]*\")*$)");
+                String[] release = releaseInfo.split(",(?=([^\"]|\"[^\"]*\")*$)"); //ignore commas if between quotes
                 //artist = [1], album title = [2], year released = [6];
-                String year;
-                if (release[6].equals("0")) {
-                    year = "unknown";
-                } else {
-                    year = release[6];
-                }
-                System.out.println("Adding item: " + count + ": " + release[1] + " - " + release[2] + " (" + year + ") to your collection.");
+                String artist = formatQuotes(release[1]);
+                String album = formatQuotes(release[2]);
+                String year = formatYear(release[6]);
 
-                Tape tape = new Tape(release[1], release[2], year);
+                System.out.println("Adding item: " + count + ": " + artist + " - " + album + " (" + year + ") to your collection.");
+
+                Tape tape = new Tape(artist, album, year);
                 collection.add(tape);
             }
         } catch (FileNotFoundException e) {
@@ -51,12 +49,34 @@ public class Collection {
         System.out.println();
     }
 
-    public void order(List<Tape> tapes) {
 
+
+
+    public String formatQuotes(String name) {
+        String fixedName;
+        if (name.charAt(0) == '"' && name.charAt(name.length()-1) == '"'){
+            fixedName = name.substring(1, name.length() - 1);
+        } else {
+            fixedName = name;
+        }
+        return fixedName;
+    }
+
+
+
+    private String formatYear(String year){
+        String newYear;
+        if (year.equals("0")) {
+            newYear = "unknown";
+        } else {
+            newYear = year;
+        }
+        return newYear;
+    }
+
+    public void order(List<Tape> tapes) { //alphabetical by artist, then chronological within each artist
         Collections.sort(tapes, new Comparator() {
-
             public int compare(Object o1, Object o2) {
-
                 String x1 = ((Tape) o1).getArtist();
                 String x2 = ((Tape) o2).getArtist();
                 int sComp = x1.compareTo(x2);

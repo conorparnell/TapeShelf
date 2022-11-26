@@ -20,11 +20,8 @@ public class Demo {
         tapes.populate("discogs-collection.csv");
         tapes.order(tapes.getCollection());
         tapes.listCollection();
-
-
-
-
-
+        
+        }
 
     }
-}
+
