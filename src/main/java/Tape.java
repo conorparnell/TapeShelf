@@ -47,7 +47,7 @@ public class Tape implements Comparable<Tape>{
     public void addGenre(String...genre) {
         for (int i = 0; i < genre.length; i++) {
             this.genre.add(genre[i]);
-            System.out.println("\'" + genre[i] + "\' added to " + getAlbum() + "'s genres");
+            System.out.println("Adding \'" + genre[i] + "\' as a genre to \"" + getAlbum() + "\" by " + getArtist());
         }
     }
 

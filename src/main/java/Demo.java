@@ -6,25 +6,17 @@ public class Demo {
 //        Tape brokenEP = new Tape("Nine Inch Nails", "Broken", "1992", "Industrial", "Noise Rock");
 //        Tape theDownwardSpiral = new Tape("Nine Inch Nails", "The Downward Spiral", "1994", "Industrial");
 //        Tape theFragile = new Tape("Nine Inch Nails", "The Fragile", "1999", "Industrial", "Art Rock");
-//        Tape withTeeth = new Tape("Nine Inch Nails", "With Teeth", "2005", "Industrial");
 //
+        //shelf still under construction
 //        Shelf shelf1 = new Shelf(1, prettyHateMachine, brokenEP, theDownwardSpiral, theFragile, withTeeth);
-//
 //        shelf1.listTapes();
 //
-//        withTeeth.addGenre("Electronic");
-//
-//        System.out.println(withTeeth.toString());
 
         Collection tapes = new Collection("discogs-collection.csv");
 
         //edit one tape at a time
-//        tapes.edit(211).addGenre("Punk", "Post-Punk");
-//        tapes.edit(212).addGenre("Death Metal", "Doom Metal");
-//        tapes.edit(213).addGenre("Death Metal", "Doom Metal");
-//        tapes.edit(214).addGenre("Death Metal", "Doom Metal", "Black Metal");
+        tapes.edit(211).addGenre("Punk", "Post-Punk");
         tapes.edit(141).setYear("1980");
-        tapes.listCollection();
 
         //edit many tapes at once
 
@@ -32,6 +24,10 @@ public class Demo {
         tapes.bulkEdit("Black Metal", 5, 12, 14, 18, 21, 38, 47, 85, 86, 100, 102, 105, 106, 111, 112, 124, 158, 175, 214, 215, 216);
         tapes.bulkEdit("Electronic", 1, 19, 26, 29, 30, 31, 33, 34, 45, 59, 60, 61, 62, 63, 75, 76, 77, 101, 107, 108, 131, 151, 152, 154, 155, 190, 201, 206, 208);
         tapes.bulkEdit("Death Metal", 2, 3, 8, 9, 10, 13, 16, 22, 23, 25, 27, 39, 40, 41, 42, 43, 44, 48, 58, 64, 65, 66, 74, 90, 109, 118, 119, 133, 134, 135, 136, 142, 143, 144, 156, 163, 176, 177, 178, 194, 195, 196, 197, 198, 199, 200, 205, 207, 212, 213, 214);
+
+        //adding a tape will place it alphabetically within collection
+        Tape paleSwordsman = new Tape("Kekht Arakh", "Pale Swordsman", "2021", "Black Metal");
+        tapes.addTape(paleSwordsman);
 
         tapes.listCollection();
 

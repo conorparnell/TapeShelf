@@ -12,7 +12,11 @@ public class Collection {
         System.out.println();
     }
 
-
+    public void addTape(Tape tape){
+        collection.add(tape);
+        System.out.println("\"" + tape.getAlbum() + "\" by " + tape.getArtist() + "added to collection.");
+        order(collection);
+    }
 
     public List<Tape> getCollection() {
         return collection;
