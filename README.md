@@ -1,3 +1,1 @@
-Work in progress -- \n
-//soon to - read/write csv files \n
-//discogs collection integration?
+Work in progress -- soon to: read/write csv files. discogs collection integration mostly complete. 
