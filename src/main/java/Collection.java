@@ -60,6 +60,13 @@ public class Collection {
         return collection.get(tapeNumber - 1);
     }
 
+    public void bulkEdit(String genre, int...tapeNumber) {
+        for (int num : tapeNumber){
+            collection.get(num - 1).addGenre(genre);
+        }
+        System.out.println("Collection updated:");
+    }
+
 
     public String formatQuotes(String name) {
         String fixedName;

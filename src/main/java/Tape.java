@@ -4,7 +4,7 @@ import java.util.List;
 public class Tape implements Comparable<Tape>{
     private String artist;
     private String album;
-    private String year;
+    private String year; //year of specific tape's release, not necessarily the original release date of the album
     private List<String> genre = new ArrayList<>();
 
     public Tape(String artist, String album, String year) {
@@ -32,6 +32,10 @@ public class Tape implements Comparable<Tape>{
 
     public String getYear() {
         return year;
+    }
+
+    public void setYear(String year) {
+        this.year = year;
     }
 
     public String getGenre() {
