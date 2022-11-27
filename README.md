@@ -1,3 +1,3 @@
-Work in progress --
-//soon to - read/write csv files
+Work in progress -- \n
+//soon to - read/write csv files \n
 //discogs collection integration?
