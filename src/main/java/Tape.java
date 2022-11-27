@@ -50,6 +50,9 @@ public class Tape implements Comparable<Tape>{
     @Override
     public String toString(){
         //Artist - Album Name (Year) [Genre, Genre, Genre];
+        if (this.genre.size() == 0) {
+            return getArtist() + " - " + getAlbum() + " (" + getYear() + ")";
+        }
         return getArtist() + " - " + getAlbum() + " (" + getYear() + ") [" + getGenre() + "]";
     }
 

@@ -12,6 +12,8 @@ public class Collection {
         System.out.println();
     }
 
+
+
     public List<Tape> getCollection() {
         return collection;
     }
@@ -54,6 +56,9 @@ public class Collection {
     }
 
 
+    public Tape edit(int tapeNumber){
+        return collection.get(tapeNumber - 1);
+    }
 
 
     public String formatQuotes(String name) {

@@ -17,6 +17,11 @@ public class Demo {
 //        System.out.println(withTeeth.toString());
 
         Collection tapes = new Collection("discogs-collection.csv");
+
+        tapes.edit(211).addGenre("Punk", "Post-Punk");
+        tapes.edit(212).addGenre("Death Metal", "Doom Metal");
+        tapes.edit(213).addGenre("Death Metal", "Doom Metal");
+        tapes.edit(214).addGenre("Death Metal", "Doom Metal", "Black Metal");
         tapes.listCollection();
 
         }
