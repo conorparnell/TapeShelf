@@ -31,7 +31,10 @@ public class Demo {
 
         tapes.listCollection();
 
+        tapes.newShelf();
+        tapes.newShelf();
+        tapes.shelve(2, 213, 214, 215);
+        tapes.listShelf(2);
         }
-
     }
 

@@ -4,6 +4,8 @@ import java.util.*;
 
 public class Collection {
     private List<Tape> collection = new ArrayList<>();
+    private List<Shelf> shelves = new ArrayList<>();
+    private int shelfCount = 1;
 
     public Collection(String filePath) {
         populate(filePath);
@@ -20,6 +22,10 @@ public class Collection {
 
     public List<Tape> getCollection() {
         return collection;
+    }
+
+    public void listShelf(int shelfNumber) {
+        shelves.get(shelfNumber -1).listTapes();
     }
 
     public void listCollection(){
@@ -40,7 +46,7 @@ public class Collection {
             while (scanner.hasNextLine()) {
                 count++;
                 String releaseInfo = scanner.nextLine();
-                String[] release = releaseInfo.split(",(?=([^\"]|\"[^\"]*\")*$)"); //ignore commas if between quotes
+                String[] release = releaseInfo.split(",(?=([^\"]|\"[^\"]*\")*$)"); //ignore commas if between quotes (solution found on stackoverflow)
                 //artist = [1], album title = [2], year released = [6];
                 String artist = formatQuotes(release[1]);
                 artist = formatArtist(artist);
@@ -82,7 +88,7 @@ public class Collection {
         return fixedName;
     }
 
-    private String formatArtist(String name){
+    private String formatArtist(String name){  //remove band number identifier from bands who share a name on discogs
         String fixedName;
         int length = name.length();
         if (name.charAt(length -1) == ')') {
@@ -103,6 +109,19 @@ public class Collection {
             newYear = year;
         }
         return newYear;
+    }
+
+    public void newShelf(){
+        Shelf shelf = new Shelf(shelfCount);
+        shelves.add(shelf);
+        System.out.println("Shelf " + shelfCount + " created.");
+        shelfCount++;
+    }
+
+    public void shelve(int shelfNumber, int...tapes) {
+        for (int num : tapes){
+            shelves.get(shelfNumber - 1).shelve(collection.get(num -1));
+        }
     }
 
     public void order(List<Tape> tapes) { //alphabetical by artist, then chronological within each artist
@@ -130,7 +149,8 @@ public class Collection {
                     y2 = Integer.parseInt(((Tape) o2).getYear());
                 }
                 return y1.compareTo(y2);
-            }});
+            }
+        });
     }
 
 }

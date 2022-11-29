@@ -6,6 +6,7 @@ public class Tape implements Comparable<Tape>{
     private String album;
     private String year; //year of specific tape's release, not necessarily the original release date of the album
     private List<String> genre = new ArrayList<>();
+    private boolean isShelved = false;
 
     public Tape(String artist, String album, String year) {
         this.artist = artist;
@@ -42,6 +43,14 @@ public class Tape implements Comparable<Tape>{
         String genreList = genre.toString();
         genreList = genreList.replace("[", "").replace("]", "");
         return genreList;
+    }
+
+    public void shelved(){
+        isShelved = true;
+    }
+
+    public void unshelved(){
+        isShelved = false;
     }
 
     public void addGenre(String...genre) {
