@@ -1,0 +1,168 @@
+#paste {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    gap: 10px;
+    background-color: lightgray;
+}
+
+.cassette {
+    font-size: 1.3em;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black;
+    border-radius: 15px;
+    height: 150px;
+    width: 150px;
+   
+
+    -webkit-user-select: none;        
+    -moz-user-select: none;
+    -ms-user-select: none; 
+    user-select: none;
+
+    overflow: hidden;
+    
+}
+
+.cassette > * {
+    pointer-events: none;
+}
+
+.red {
+    background-color: #be0039
+}
+
+.orange {
+    background-color: #ff4500;
+}
+
+.mustard {
+    background-color: #ffa800;
+}
+
+.yellow {
+    background-color: #ffd635;
+}
+
+.moss {
+    background-color: #00a368;
+}
+
+.foam {
+    background-color: #00cc78;
+}
+
+.green {
+    background-color: #7eed56;
+}
+
+.pine {
+    background-color: #00756f;
+}
+
+.teal {
+    background-color: #009eaa;
+}
+
+.cerulean {
+    background-color: #2450a4;
+    color: white;
+}
+
+.sky {
+    background-color: #3690ea;
+}
+
+.aqua {
+    background-color: #51e9f4;
+}
+
+.navy {
+    background-color: #493ac1;
+    color: white;
+}
+
+.periwinkle {
+    background-color: #6a5cff;
+}
+
+.plum {
+    background-color: #811e9f;
+}
+
+.purple {
+    background-color: #b44ac0;
+}
+
+.pink {
+    background-color: #ff3881;
+}
+
+.peach {
+    background-color: #ff99aa;
+}
+
+.brown {
+    background-color: #6d482f;
+    color: white;
+}
+
+.tan {
+    background-color: #9c6926;
+}
+
+.black {
+    background-color: #000000;
+    color: white;
+    border-color: #898d90;
+}
+
+.dusk {
+    background-color: #515352;
+    color: white;
+}
+
+.grey {
+    background-color: #898d90;
+}
+
+.dawn {
+    background-color: #d4d7d9;
+}
+
+.white {
+    background-color: #FFFFFF;
+}
+
+#colorpicker {
+    display: inline-block;
+    position: fixed;
+    margin-left: 200px;
+    background-color: lightgrey;
+    padding: 25px;
+    width: 500px;
+    /*height: 500px;*/
+    display:flex;
+    flex-wrap: wrap;
+    border-radius: 20px;
+    border-width: 5px;
+    border-color: black;
+    border-style: solid;
+  }
+  
+  .box {
+    height: 100px;
+    width: 100px;
+  }
+
+  #colorbox {
+      flex-basis: 100%;
+      text-align: center;
+      z-index: 2;
+  }
+
+  .color-text {
+      font-size: 1.6em;
+      margin-top: 0px;
+  }
