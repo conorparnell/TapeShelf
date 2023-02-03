@@ -121,7 +121,7 @@ function paste() {
         // tape.classList.add(color);
 
         const tapeText = document.createElement("p");
-        tapeText.innerHTML = `<strong>${tapes[i].artist}</strong> - <em>${tapes[i].title}</em>`;
+        tapeText.innerHTML = `<strong>${tapes[i].artist}</strong><br><em>${tapes[i].title}</em>`;
         tape.appendChild(tapeText);
         div.appendChild(tape);
     
