@@ -2,7 +2,10 @@ let tapes = [];
 let tapeNumber = 0;
 let idString;
 
-document.addEventListener('contextmenu', event => event.preventDefault());
+
+document.addEventListener('contextmenu', (e) => {
+    e.preventDefault();
+});
 
 function processFile() {
     const deleteMe = document.querySelectorAll(".cassette");
@@ -47,9 +50,9 @@ function processFile() {
             }
             //remove discogs number from artist
             if (artist.charAt(artist.length - 3) === '(' && artist.charAt(artist.length - 1) === ')') {
-                artist = artist.substr(0, artist.length - 3);
-            } else if (artist.charAt(artist.length - 4) === '(' && artist.charAt(artist.length - 1) === ')') {
                 artist = artist.substr(0, artist.length - 4);
+            } else if (artist.charAt(artist.length - 4) === '(' && artist.charAt(artist.length - 1) === ')') {
+                artist = artist.substr(0, artist.length - 5);
             }
 
             //abbridge longer artist names
@@ -92,7 +95,7 @@ function processFile() {
             }
         }
         paste();
-        //setTimeout(startDraggable, 10);
+        setTimeout(startDraggable, 10);
     }
 }
 
@@ -100,8 +103,19 @@ function processFile() {
 function paste() {
     //alphabetical and chronological order
     tapes.sort(function (a, b) {
-        return a.artist.localeCompare(b.artist) || a.year - b.year;
-    });
+        let artistA = a.artist;
+        let artistB = b.artist;
+    
+        if (artistA.startsWith("The ")) {
+          artistA = artistA.slice(4);
+        }
+    
+        if (artistB.startsWith("The ")) {
+          artistB = artistB.slice(4);
+        }
+    
+        return artistA.localeCompare(artistB) || a.year - b.year;
+      });
 
 
     const div = document.getElementById("paste");
@@ -113,12 +127,8 @@ function paste() {
         tape.addEventListener('click', (e) => {
             console.log(e.target.id);
             idString = e.target.id;
-            colorRefresh(idString);
-            colorPicker(idString);
         });
-        //tape.setAttribute("draggable", "true");
-        // let color = tapes[i].title.substring(0, 1).toLowerCase();
-        // tape.classList.add(color);
+        tape.setAttribute("draggable", "true");
 
         const tapeText = document.createElement("p");
         tapeText.innerHTML = `<strong>${tapes[i].artist}</strong><br><em>${tapes[i].title}</em>`;
@@ -126,6 +136,17 @@ function paste() {
         div.appendChild(tape);
     
     }
+
+    const cass = document.querySelectorAll(".cassette");
+    cass.forEach( item => {
+        console.log(item.innerText);
+        item.addEventListener('contextmenu', (e) => {
+            colorRefresh(e.target.id);
+            console.log('right clicked');
+            console.log(e.target.id);
+            colorPicker(e.target.id);
+          });
+    });
 
 
 }
@@ -171,56 +192,60 @@ function testCass(str) {
 
 
 
-// function startDraggable() {
+function startDraggable() {
 
-//     function handleDragStart(e) {
-//         this.style.opacity = '0.4';
-//         dragSrcEl = this;
+    function handleDragStart(e) {
+        this.style.opacity = '0.4';
+        dragSrcEl = this;
 
-//         e.dataTransfer.effectAllowed = 'move';
-//         e.dataTransfer.setData('text/html', this.innerHTML);
-//     }
+        e.dataTransfer.effectAllowed = 'move';
+        e.dataTransfer.setData('text/html', this.innerHTML);
+        e.dataTransfer.setData('text/plain', this.className);
+        
+    }
 
-//     function handleDragEnd(e) {
-//         this.style.opacity = '1';
+    function handleDragEnd(e) {
+        this.style.opacity = '1';
 
-//         items.forEach(function (item) {
-//             item.classList.remove('over');
-//         });
-//     }
+        items.forEach(function (item) {
+            item.classList.remove('over');
+        });
+    }
 
-//     function handleDragOver(e) {
-//         e.preventDefault();
-//         return false;
-//     }
+    function handleDragOver(e) {
+        e.preventDefault();
+        return false;
+    }
 
-//     function handleDragEnter(e) {
-//         this.classList.add('over');
-//     }
+    function handleDragEnter(e) {
+        this.classList.add('over');
+    }
 
-//     function handleDragLeave(e) {
-//         this.classList.remove('over');
-//     }
+    function handleDragLeave(e) {
+        this.classList.remove('over');
+    }
 
-//     function handleDrop(e) {
-//         e.stopPropagation(); // stops the browser from redirecting.
-//         if (dragSrcEl !== this) {
-//             dragSrcEl.innerHTML = this.innerHTML;
-//             this.innerHTML = e.dataTransfer.getData('text/html');
-//         }
-//         return false;
-//     }
+    function handleDrop(e) {
+        e.stopPropagation(); // stops the browser from redirecting.
+        if (dragSrcEl !== this) {
+            dragSrcEl.innerHTML = this.innerHTML;
+            dragSrcEl.className = this.className;
+            this.innerHTML = e.dataTransfer.getData("text/html");
+            this.className = e.dataTransfer.getData("text/plain");
+        }
+        return false;
+    }
 
-//     let items = document.querySelectorAll('.container .cassette');
-//     items.forEach(function (item) {
-//         item.addEventListener('dragstart', handleDragStart);
-//         item.addEventListener('dragover', handleDragOver);
-//         item.addEventListener('dragenter', handleDragEnter);
-//         item.addEventListener('dragleave', handleDragLeave);
-//         item.addEventListener('dragend', handleDragEnd);
-//         item.addEventListener('drop', handleDrop);
-//     });
-// }
+    let items = document.querySelectorAll('.container .cassette');
+    items.forEach(function (item) {
+        item.addEventListener('dragstart', handleDragStart);
+        item.addEventListener('dragover', handleDragOver);
+        item.addEventListener('dragenter', handleDragEnter);
+        item.addEventListener('dragleave', handleDragLeave);
+        item.addEventListener('dragend', handleDragEnd);
+        item.addEventListener('drop', handleDrop);
+    });
+}
 
 function clickTest(id) {
     const selectedBox = document.getElementById(id);
@@ -274,7 +299,8 @@ function colorPicker(id){
     textBox.setAttribute("id", "colorbox");
     const boxText = document.createElement("p");
     boxText.classList.add("color-text");
-    boxText.innerText = `Choose a color for ${selectedBox.innerText}:`;
+    boxText.innerText = `Choose a color for ${changeString(selectedBox.innerHTML)}:`;
+    console.log(`${selectedBox.innerHTML}`);
     textBox.appendChild(boxText);
     pickerBox.appendChild(textBox);
 
@@ -678,3 +704,15 @@ const colorArray = ["red", "orange", "mustard", "yellow", "green", "foam", "moss
     const paste = document.getElementById("paste");
     paste.classList.remove("block");
   }
+
+
+
+function changeString(inputString){
+  let el = document.createElement('div');
+  el.innerHTML = inputString;
+  
+  let strong = el.getElementsByTagName('strong')[0].textContent;
+  let em = el.getElementsByTagName('em')[0].textContent;
+  
+  return em + " by " + strong;
+}

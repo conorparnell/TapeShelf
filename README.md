@@ -1,4 +1,6 @@
 # TapeShelf
 Upload a [Discogs-generated](https://www.discogs.com/users/export) .csv collection file, and then play around with your tapes! <br>
 Tapes will be generated in alphabetical order by artist, and chronological by album. <br>
-Click to choose a color for each. Shelves and dragability coming soon.
+**ONLY CASSETTES FROM COLLECTIONS ARE CURRENTLY BEING GENERATED** <br>
+Right-click on a tape to choose a color for it. Click and drag a tape to rearrange your collection. <br>
+Digital shelves soon to be added.

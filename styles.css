@@ -3,8 +3,8 @@
     flex-wrap: wrap;
     text-align: center;
     gap: 10px;
-    /* background: linear-gradient(180deg, rgba(255,255,255,0.9051995798319328) 5%, rgba(0,0,0,0.9051995798319328) 86%); */
-    background-color:white;
+    background: rgb(255,255,255);
+    background: linear-gradient(180deg, rgba(255,255,255,0.9051995798319328) 44%, rgba(0,0,0,0.28895308123249297) 100%);
     background-attachment: fixed;
     padding:10px;
 }
