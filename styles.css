@@ -4,7 +4,7 @@
     text-align: center;
     gap: 10px;
     background: rgb(255,255,255);
-    background: linear-gradient(180deg, rgba(255,255,255,0.9051995798319328) 0%, rgba(0,0,0,0.9051995798319328) 95%);
+    background: linear-gradient(180deg, rgba(255,255,255,0.9051995798319328) 5%, rgba(0,0,0,0.9051995798319328) 86%);
     background-attachment: fixed;
     padding:10px;
 }
@@ -17,16 +17,21 @@
     border-radius: 15px;
     height: 150px;
     width: 150px;
-    background-color: #d4d7d9;
+    background-color:rgb(255, 255, 255, 0.2);
     -webkit-user-select: none;        
     -moz-user-select: none;
     -ms-user-select: none; 
     user-select: none;
     overflow: hidden;
 
-    
+
 }
 
+.block {
+    background: none !important;
+    background-color:rgba(0, 0, 0, 0.7) !important;
+    pointer-events: none;
+}
 
 
 .cassette > * {

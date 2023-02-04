@@ -262,6 +262,7 @@ function clickTest(id) {
 //TO BE APPENDED TO #top
 
 function colorPicker(id){
+    blockScreen();
     const selectedBox = document.getElementById(id);
     console.log(`You clicked ${selectedBox.innerText} ${id}`);
 
@@ -287,6 +288,7 @@ function colorPicker(id){
         console.log(genreText);
         selectedBox.classList.add(genreText);
         pickerBox.remove();
+        unblockScreen();
     });
     pickerBox.appendChild(redBox);
 
@@ -300,6 +302,7 @@ function colorPicker(id){
         console.log(genreText);
         selectedBox.classList.add(genreText);
         pickerBox.remove();
+        unblockScreen();
     });
     pickerBox.appendChild(orangeBox);
 
@@ -313,6 +316,7 @@ function colorPicker(id){
         console.log(genreText);
         selectedBox.classList.add(genreText);
         pickerBox.remove();
+        unblockScreen();
     });
     pickerBox.appendChild(mustardBox);
 
@@ -326,6 +330,7 @@ function colorPicker(id){
         console.log(genreText);
         selectedBox.classList.add(genreText);
         pickerBox.remove();
+        unblockScreen();
     });
     pickerBox.appendChild(yellowBox);
 
@@ -339,6 +344,7 @@ function colorPicker(id){
         console.log(genreText);
         selectedBox.classList.add(genreText);
         pickerBox.remove();
+        unblockScreen();
     });
     pickerBox.appendChild(greenBox);
 
@@ -352,6 +358,7 @@ function colorPicker(id){
         console.log(genreText);
         selectedBox.classList.add(genreText);
         pickerBox.remove();
+        unblockScreen();
     });
     pickerBox.appendChild(foamBox);
 
@@ -365,6 +372,7 @@ function colorPicker(id){
         console.log(genreText);
         selectedBox.classList.add(genreText);
         pickerBox.remove();
+        unblockScreen();
     });
     pickerBox.appendChild(mossBox);
 
@@ -378,6 +386,7 @@ function colorPicker(id){
         console.log(genreText);
         selectedBox.classList.add(genreText);
         pickerBox.remove();
+        unblockScreen();
     });
     pickerBox.appendChild(pineBox);
 
@@ -391,6 +400,7 @@ function colorPicker(id){
         console.log(genreText);
         selectedBox.classList.add(genreText);
         pickerBox.remove();
+        unblockScreen();
     });
     pickerBox.appendChild(tealBox);
 
@@ -404,6 +414,7 @@ function colorPicker(id){
         console.log(genreText);
         selectedBox.classList.add(genreText);
         pickerBox.remove();
+        unblockScreen();
     });
     pickerBox.appendChild(aquaBox);
 
@@ -417,6 +428,7 @@ function colorPicker(id){
         console.log(genreText);
         selectedBox.classList.add(genreText);
         pickerBox.remove();
+        unblockScreen();
     });
     pickerBox.appendChild(skyBox);
 
@@ -430,6 +442,7 @@ function colorPicker(id){
         console.log(genreText);
         selectedBox.classList.add(genreText);
         pickerBox.remove();
+        unblockScreen();
     });
     pickerBox.appendChild(ceruleanBox);
 
@@ -443,6 +456,7 @@ function colorPicker(id){
         console.log(genreText);
         selectedBox.classList.add(genreText);
         pickerBox.remove();
+        unblockScreen();
     });
     pickerBox.appendChild(navyBox);
 
@@ -456,6 +470,7 @@ function colorPicker(id){
         console.log(genreText);
         selectedBox.classList.add(genreText);
         pickerBox.remove();
+        unblockScreen();
     });
     pickerBox.appendChild(periBox);
 
@@ -469,6 +484,7 @@ function colorPicker(id){
         console.log(genreText);
         selectedBox.classList.add(genreText);
         pickerBox.remove();
+        unblockScreen();
     });
     pickerBox.appendChild(plumBox);
 
@@ -482,6 +498,7 @@ function colorPicker(id){
         console.log(genreText);
         selectedBox.classList.add(genreText);
         pickerBox.remove();
+        unblockScreen();
     });
     pickerBox.appendChild(purpleBox);
 
@@ -495,6 +512,7 @@ function colorPicker(id){
         console.log(genreText);
         selectedBox.classList.add(genreText);
         pickerBox.remove();
+        unblockScreen();
     });
     pickerBox.appendChild(pinkBox);
 
@@ -508,6 +526,7 @@ function colorPicker(id){
         console.log(genreText);
         selectedBox.classList.add(genreText);
         pickerBox.remove();
+        unblockScreen();
     });
     pickerBox.appendChild(peachBox);
 
@@ -521,6 +540,7 @@ function colorPicker(id){
         console.log(genreText);
         selectedBox.classList.add(genreText);
         pickerBox.remove();
+        unblockScreen();
     });
     pickerBox.appendChild(tanBox);
 
@@ -534,6 +554,7 @@ function colorPicker(id){
         console.log(genreText);
         selectedBox.classList.add(genreText);
         pickerBox.remove();
+        unblockScreen();
     });
     pickerBox.appendChild(brownBox);
 
@@ -547,6 +568,7 @@ function colorPicker(id){
         console.log(genreText);
         selectedBox.classList.add(genreText);
         pickerBox.remove();
+        unblockScreen();
     });
     pickerBox.appendChild(blackBox);
 
@@ -560,6 +582,7 @@ function colorPicker(id){
         console.log(genreText);
         selectedBox.classList.add(genreText);
         pickerBox.remove();
+        unblockScreen();
     });
     pickerBox.appendChild(duskBox);
 
@@ -573,6 +596,7 @@ function colorPicker(id){
         console.log(genreText);
         selectedBox.classList.add(genreText);
         pickerBox.remove();
+        unblockScreen();
     });
     pickerBox.appendChild(greyBox);
 
@@ -586,6 +610,7 @@ function colorPicker(id){
         console.log(genreText);
         selectedBox.classList.add(genreText);
         pickerBox.remove();
+        unblockScreen();
     });
     pickerBox.appendChild(dawnBox);
 
@@ -599,6 +624,7 @@ function colorPicker(id){
         console.log(genreText);
         selectedBox.classList.add(genreText);
         pickerBox.remove();
+        unblockScreen();
     });
     pickerBox.appendChild(whiteBox);
 
@@ -641,4 +667,14 @@ const colorArray = ["red", "orange", "mustard", "yellow", "green", "foam", "moss
   function colorRefresh(id){
       const refreshBox = document.getElementById(id);
       refreshBox.classList.remove(...colorArray);
+  }
+
+  function blockScreen(){
+      const paste =document.getElementById("paste");
+      paste.classList.add("block");
+  }
+
+  function unblockScreen(){
+    const paste = document.getElementById("paste");
+    paste.classList.remove("block");
   }
