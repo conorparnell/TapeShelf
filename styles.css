@@ -23,7 +23,7 @@
     -ms-user-select: none; 
     user-select: none;
     overflow: hidden;
-
+    transition-duration: 300ms;
 }
 
 .block {
@@ -178,4 +178,5 @@
 
   .cassette:hover {
       border-color: gold;
+      transition-duration: 100ms;
   }
