@@ -67,6 +67,7 @@
 
 .pine {
     background-color: #00756f;
+    color: white;
 }
 
 .teal {
@@ -157,7 +158,6 @@
     border-width: 5px;
     border-color: black;
     border-style: solid;
-    z-index: 3;
   }
   
   .box {
@@ -168,7 +168,6 @@
   #colorbox {
       flex-basis: 100%;
       text-align: center;
-      z-index: 2;
   }
 
   .color-text {
@@ -179,4 +178,13 @@
   .cassette:hover {
       border-color: gold;
       transition-duration: 100ms;
+  }
+
+  #top {
+      display: flex;
+      justify-content: space-between;
+  }
+
+  #about {
+      margin-right: 20px;
   }
