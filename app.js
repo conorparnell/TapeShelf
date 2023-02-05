@@ -82,7 +82,7 @@ function processFile() {
                 tapes.push(newTape);
             } else {
                 for (j = 0; j < tapeNumber; j++) {
-                    let albumNext = `${album} (Tape ${(j + 1)})`;
+                    let albumNext = `${album} [Tape ${(j + 1)}]`;
                     console.log(albumNext);
                     let newTape = {
                         artist: artist,
@@ -131,7 +131,7 @@ function paste() {
         tape.setAttribute("draggable", "true");
 
         const tapeText = document.createElement("p");
-        tapeText.innerHTML = `<strong>${tapes[i].artist}</strong><br><em>${tapes[i].title}</em>`;
+        tapeText.innerHTML = `<strong>${tapes[i].artist}</strong><br><em>${tapes[i].title}</em><br>(${tapes[i].year})`;
         tape.appendChild(tapeText);
         div.appendChild(tape);
     
@@ -716,3 +716,5 @@ function changeString(inputString){
   
   return em + " by " + strong;
 }
+
+
