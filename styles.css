@@ -1,3 +1,12 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+#select-file {
+    margin-left: 10px;
+}
+
 #paste {
     display: flex;
     flex-wrap: wrap;
@@ -7,6 +16,8 @@
     background: linear-gradient(180deg, rgba(255,255,255,0.9051995798319328) 44%, rgba(0,0,0,0.28895308123249297) 100%);
     background-attachment: fixed;
     padding:10px;
+    margin: 0;
+    padding-top: 30px;
 }
 
 .cassette {
@@ -184,8 +195,17 @@
   #top {
       display: flex;
       justify-content: space-between;
+      position: fixed;
+      background-color: white;
+      width: 100%;
+      height: 25px;
+      padding-top: 5px;
   }
 
   #about {
       margin-right: 20px;
+  }
+
+  #export {
+      margin-left: 10px;
   }

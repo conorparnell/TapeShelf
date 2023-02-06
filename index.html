@@ -12,10 +12,11 @@
 
 <body>
     <div id="top">
-        <div>
+        <div id="select-file">
             Select a file:
             <input type="file" id="collectionFile" accept=".csv">
-            <button onclick='processFile()'>Process</button>
+            <button id ="process" onclick='processFile()'>Process</button>
+            <button id="export" onclick='exportData()'>Export</button>
         </div>
         <div id="info">
             <button id="about"
