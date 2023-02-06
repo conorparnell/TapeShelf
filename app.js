@@ -365,9 +365,31 @@ function exportData() {
      let hiddenElement = document.createElement('a');  
      hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(csv);  
      hiddenElement.target = '_blank';  
-         
-     hiddenElement.download = 'TapeShelf_Collection.csv';  
+    
+     //timestamp for file
+     let timestamp = new Date();
+
+
+     hiddenElement.download = 'TapeShelf_Collection' + getTimestamp() + '.csv';  
      hiddenElement.click();
      document.getElementById("export").disabled = 'true';  
      setTimeout(enableExport, 5000);
  }  
+
+ function getTimestamp(){
+    let today = new Date();
+    let dd = today.getDate();
+    let mm = today.getMonth()+1; 
+    let yyyy = today.getFullYear();
+    if(dd<10) 
+    {
+        dd='0'+dd;
+    } 
+    
+    if(mm<10) 
+    {
+        mm='0'+mm;
+    } 
+    today = mm+'_'+dd+'_'+yyyy;
+    return today;
+ }
