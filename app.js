@@ -112,11 +112,16 @@ function processFile() {
         document.getElementById("export").disabled = false;
     }
 
+    
+
     function disableButton() {
         document.getElementById("process").disabled = 'true';
     }
 }
 
+function enableExport(){
+    document.getElementById("export").disabled = false;
+}
 
 function paste(processed) {
     if (processed == false) {
@@ -364,4 +369,5 @@ function exportData() {
      hiddenElement.download = 'TapeShelf_Collection.csv';  
      hiddenElement.click();
      document.getElementById("export").disabled = 'true';  
+     setTimeout(enableExport, 5000);
  }  
