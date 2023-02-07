@@ -42,7 +42,7 @@ function processFile() {
             //6 - year
             //7-10 bunk
 
-            testCass(cols[4]);
+            determineNumberOfCassettes(cols[4]);
 
             let artist = cols[1];
             let album = cols[2];
@@ -177,7 +177,7 @@ function paste(processed) {
 
 
 
-function testCass(str) {
+function determineNumberOfCassettes(str) {
     //clear quotes
     if (str.charAt(0) === '"' && str.charAt(str.length - 1) === '"') {
         str = str.substr(1, str.length - 2);
