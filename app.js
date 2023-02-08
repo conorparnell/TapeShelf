@@ -101,7 +101,6 @@ function processFile() {
                         year: year,
                         color: color
                     };
-
                     tapes.push(newTape);
                 }
             }
@@ -130,6 +129,7 @@ function paste(processed) {
             let artistA = a.artist;
             let artistB = b.artist;
 
+            //remove the "the"
             if (artistA.startsWith("The ")) {
                 artistA = artistA.slice(4);
             }
@@ -150,9 +150,6 @@ function paste(processed) {
         tape.classList.add("cassette");
         tape.classList.add(tapes[i].color);
         tape.setAttribute("id", `tape${i + 1}`);
-        tape.addEventListener('click', (e) => {
-            idString = e.target.id;
-        });
         tape.setAttribute("draggable", "true");
 
         const tapeText = document.createElement("p");
