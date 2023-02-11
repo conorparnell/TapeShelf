@@ -111,14 +111,14 @@ function processFile() {
         document.getElementById("export").disabled = false;
     }
 
-    
+
 
     function disableButton() {
         document.getElementById("process").disabled = 'true';
     }
 }
 
-function enableExport(){
+function enableExport() {
     document.getElementById("export").disabled = false;
 }
 
@@ -166,13 +166,7 @@ function paste(processed) {
             colorPicker(e.target.id);
         });
     });
-
-
 }
-
-
-
-
 
 function determineNumberOfCassettes(str) {
     //clear quotes
@@ -335,7 +329,7 @@ function exportData() {
     const allTapes = document.querySelectorAll(".cassette");
 
     let exportData = [];
-  
+
 
     allTapes.forEach((item) => {
         let order = item.id.substring(4);
@@ -349,44 +343,42 @@ function exportData() {
     });
 
 
-     //define the heading for each row of the data  
-     let csv = "CatalogNum,Artist,Title,Label,Format,Rating,Released,release_id,CollectionFolder,Date Added,Collection Notes,Color\n";
-       
-     //merge the data with CSV  
-     exportData.forEach(function(row) {  
-             csv += row.join(',');  
-             csv += "\n";  
-     });  
-       
+    //define the heading for each row of the data  
+    let csv = "CatalogNum,Artist,Title,Label,Format,Rating,Released,release_id,CollectionFolder,Date Added,Collection Notes,Color\n";
+
+    //merge the data with CSV  
+    exportData.forEach(function (row) {
+        csv += row.join(',');
+        csv += "\n";
+    });
+
     //make a hidden link for the download
-     let hiddenElement = document.createElement('a');  
-     hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(csv);  
-     hiddenElement.target = '_blank';  
-    
-     //timestamp for file
-     let timestamp = new Date();
+    let hiddenElement = document.createElement('a');
+    hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(csv);
+    hiddenElement.target = '_blank';
+
+    //timestamp for file
+    let timestamp = new Date();
 
 
-     hiddenElement.download = 'TapeShelf_Collection' + getTimestamp() + '.csv';  
-     hiddenElement.click();
-     document.getElementById("export").disabled = 'true';  
-     setTimeout(enableExport, 5000);
- }  
+    hiddenElement.download = 'TapeShelf_Collection' + getTimestamp() + '.csv';
+    hiddenElement.click();
+    document.getElementById("export").disabled = 'true';
+    setTimeout(enableExport, 5000);
+}
 
- function getTimestamp(){
+function getTimestamp() {
     let today = new Date();
     let dd = today.getDate();
-    let mm = today.getMonth()+1; 
+    let mm = today.getMonth() + 1;
     let yyyy = today.getFullYear();
-    if(dd<10) 
-    {
-        dd='0'+dd;
-    } 
-    
-    if(mm<10) 
-    {
-        mm='0'+mm;
-    } 
-    today = mm+'_'+dd+'_'+yyyy;
+    if (dd < 10) {
+        dd = '0' + dd;
+    }
+
+    if (mm < 10) {
+        mm = '0' + mm;
+    }
+    today = mm + '_' + dd + '_' + yyyy;
     return today;
- }
+}
